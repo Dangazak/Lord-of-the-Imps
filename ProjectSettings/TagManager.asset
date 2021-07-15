@@ -8,16 +8,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Objective
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Normal Imps
+  - Small Imps
+  - Big Imps
+  - Flying Imps
+  - Portals
+  - Obstacles
+  - Ground
   - 
   - 
   - 
@@ -40,4 +40,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 989241955
+    locked: 0
+  - name: Back objects
+    uniqueID: 1530345785
+    locked: 0
+  - name: Characters
+    uniqueID: 42383997
+    locked: 0
+  - name: Top objects
+    uniqueID: 2904497133
+    locked: 0
+  - name: Ground
+    uniqueID: 3360864349
+    locked: 0
+  - name: FXs
+    uniqueID: 3315977545
+    locked: 0
+  - name: UI
+    uniqueID: 2805614573
     locked: 0

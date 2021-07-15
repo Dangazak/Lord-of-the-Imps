@@ -5,7 +5,7 @@ using UnityEngine;
 public class TouchInputManager : MonoBehaviour
 {
     [SerializeField] LayerMask interactableObjects;
-    [SerializeField] List<ImpOrderManager> imps = new List<ImpOrderManager>();
+    [SerializeField] List<ImpMovement> imps = new List<ImpMovement>();
     [SerializeField] float touchOffset;
 
     void Update()
@@ -27,16 +27,18 @@ public class TouchInputManager : MonoBehaviour
     }
     void FindTargetWithRaycast(Touch touch)
     {
+        Debug.Log("toque");
         Ray ray = Camera.main.ScreenPointToRay(touch.position);
-        RaycastHit hitinfo;
-        if (Physics.Raycast(ray.origin, ray.direction, out hitinfo, 50, interactableObjects))
+        RaycastHit2D hitinfo = Physics2D.Raycast(ray.origin, ray.direction, 500, interactableObjects);
+
+        if (hitinfo)
         {
             if (hitinfo.collider.gameObject.layer == Constants.BIG_IMPS_LAYER
             || hitinfo.collider.gameObject.layer == Constants.FLYING_IMPS_LAYER
             || hitinfo.collider.gameObject.layer == Constants.NORMAL_IMPS_LAYER
             || hitinfo.collider.gameObject.layer == Constants.SMALL_IMPS_LAYER)
             {
-                ImpOrderManager tempImp = hitinfo.collider.gameObject.GetComponent<ImpOrderManager>();
+                ImpMovement tempImp = hitinfo.collider.gameObject.GetComponent<ImpMovement>();
                 imps.Add(tempImp);
                 tempImp.assignedTouchID = touch.fingerId;
                 tempImp.touchStartPosition = touch.position;
@@ -53,34 +55,39 @@ public class TouchInputManager : MonoBehaviour
         {
             if (imps[i].assignedTouchID == touch.fingerId)
             {
-
-                imps[i].currentOrder = ChooseOrder(imps[i].touchStartPosition, touch.position);
+                if (imps[i].canRecieveOrders)
+                    ChooseOrder(imps[i].touchStartPosition, touch.position, imps[i]);
                 imps.Remove(imps[i]);
             }
         }
     }
-    ImpOrderManager.Order ChooseOrder(Vector2 startPosition, Vector2 endPosition)
+    void ChooseOrder(Vector2 startPosition, Vector2 endPosition, ImpMovement imp)
     {
         Vector2 touchMovement = endPosition - startPosition;
         if (touchMovement.magnitude < touchOffset)
         {
-            return ImpOrderManager.Order.stop;
+            if (imp.currentState != ImpMovement.State.stopped)
+                imp.Jump();
+            else
+            {
+                imp.Move(!imp.flipped);
+            }
         }
         else if (touchMovement.x > 0 && touchMovement.x >= touchMovement.y)
         {
-            return ImpOrderManager.Order.right;
+            imp.Move(true);
         }
         else if (touchMovement.x < 0 && touchMovement.x <= touchMovement.y)
         {
-            return ImpOrderManager.Order.left;
+            imp.Move(false);
         }
         else if (touchMovement.y > 0)
         {
-            return ImpOrderManager.Order.up;
+            imp.Jump();
         }
         else
         {
-            return ImpOrderManager.Order.down;
+            imp.Stop();
         }
     }
 }

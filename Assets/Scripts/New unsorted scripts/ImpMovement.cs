@@ -9,7 +9,7 @@ public class ImpMovement : MonoBehaviour
     public enum State { walking, jumping, falling, stopped }
     public State currentState = State.falling;
     [SerializeField] LayerMask groundLayerMask;
-    bool wasWalking;//= true;
+    bool wasWalking = true;
     public bool canRecieveOrders, flipped;
     public int assignedTouchID;
     public Vector2 touchStartPosition;
@@ -22,10 +22,21 @@ public class ImpMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (currentState == State.walking || currentState == State.jumping)
+        {
+            if (flipped)
+                charRigidbody.velocity = new Vector2(-speed, charRigidbody.velocity.y);
+            else
+                charRigidbody.velocity = new Vector2(speed, charRigidbody.velocity.y);
+        }
+    }
+
     public void Jump()
     {
         currentState = State.jumping;
-        charRigidbody.velocity = charRigidbody.velocity + Vector2.up * jumpSpeed;
+        charRigidbody.velocity = new Vector2(charRigidbody.velocity.x, jumpSpeed);// charRigidbody.velocity + Vector2.up * jumpSpeed;
     }
 
     public void Stop()

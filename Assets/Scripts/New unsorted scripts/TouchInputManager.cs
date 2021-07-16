@@ -67,27 +67,35 @@ public class TouchInputManager : MonoBehaviour
         if (touchMovement.magnitude < touchOffset)
         {
             if (imp.currentState != ImpMovement.State.stopped)
+            {
                 imp.Jump();
+                Debug.Log("click jump");
+            }
             else
             {
                 imp.Move(!imp.flipped);
+                Debug.Log("click move");
             }
         }
         else if (touchMovement.x > 0 && touchMovement.x >= touchMovement.y)
         {
             imp.Move(true);
+            Debug.Log("move right");
         }
         else if (touchMovement.x < 0 && touchMovement.x <= touchMovement.y)
         {
             imp.Move(false);
+            Debug.Log("move left");
         }
         else if (touchMovement.y > 0)
         {
             imp.Jump();
+            Debug.Log("jump");
         }
         else
         {
             imp.Stop();
+            Debug.Log("stop");
         }
     }
 }

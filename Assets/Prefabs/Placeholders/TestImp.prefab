@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2428685710320210366}
   - component: {fileID: 2428685710320210365}
   - component: {fileID: 6087117020983161954}
+  - component: {fileID: 7981137863876302045}
   m_Layer: 6
   m_Name: TestImp
   m_TagString: Untagged
@@ -96,6 +97,22 @@ MonoBehaviour:
   flipped: 0
   assignedTouchID: 0
   touchStartPosition: {x: 0, y: 0}
+--- !u!58 &7981137863876302045
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428685710320210364}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!1 &2428685710622534352
 GameObject:
   m_ObjectHideFlags: 0

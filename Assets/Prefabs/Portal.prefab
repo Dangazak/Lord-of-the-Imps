@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6823103199952194396}
   - component: {fileID: 6651079369343303628}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: Circulo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6822978493803949454}
   - component: {fileID: 6651558485133056720}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: Fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,9 +176,9 @@ GameObject:
   - component: {fileID: 6805394012109242014}
   - component: {fileID: 914870136844380487}
   - component: {fileID: 6912189316369770024}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: Portal
-  m_TagString: portal2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,8 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee8ddf1169ffae4082cce3f61bead31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impPrefab: {fileID: 0}
-  inactiveTime: 0
+  impPrefab: {fileID: 2428685710320210364, guid: e4420fde7ce20b4408693d144bfa16a2, type: 3}
+  inactiveTime: 2
+  animator: {fileID: 6912189316369770024}
 --- !u!95 &6912189316369770024
 Animator:
   serializedVersion: 3
@@ -236,7 +237,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6826646499305077082}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9735597d6956c4607ba87bd972f4e0a6, type: 2}
   m_CullingMode: 0
@@ -257,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6822997458302991262}
   - component: {fileID: 6650814188229728720}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: Espiral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +341,7 @@ GameObject:
   - component: {fileID: 6822662641401961300}
   - component: {fileID: 6629676893331766344}
   - component: {fileID: 6663666570938495468}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: Particulas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +445,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4992,7 +4993,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 899174720260866229}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5008,7 +5009,7 @@ Transform:
   m_GameObject: {fileID: 9095039783708270462}
   m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children:
   - {fileID: 6822978493803949454}
   - {fileID: 6823103199952194396}

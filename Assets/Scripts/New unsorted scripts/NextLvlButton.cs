@@ -8,8 +8,8 @@ public class NextLvlButton : MonoBehaviour
 
     public void NextLvl()
     {
-        Scene escena = SceneManager.GetActiveScene();
-        int sceneIndex = escena.buildIndex;
+        Scene currentScene = SceneManager.GetActiveScene();
+        int sceneIndex = currentScene.buildIndex;
         sceneIndex++;
         //GameControl.control.StopMusc ();
         SceneManager.LoadScene(sceneIndex);

@@ -10,7 +10,7 @@ public class Orb : MonoBehaviour
     [SerializeField] LayerMask impsLayers;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (((1 << other.gameObject.layer) & impsLayers) != 0)
+        if ((((1 << other.gameObject.layer) & impsLayers) != 0) && !other.isTrigger)
         //if (other.gameObject.layer == impsLayers)
         {
             //levelCompletedWindow.SetActive(true);

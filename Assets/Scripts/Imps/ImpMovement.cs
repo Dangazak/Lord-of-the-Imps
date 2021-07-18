@@ -6,19 +6,21 @@ public class ImpMovement : MonoBehaviour
 {
     [SerializeField] float speed, groundCheckDistance, jumpSpeed;
     [SerializeField] Rigidbody2D charRigidbody;
+    [SerializeField] LayerMask groundLayerMask;
+    [SerializeField] ImpAnimationManager animationManager;
     public enum State { walking, jumping, falling, stopped }
     public State currentState = State.falling;
-    [SerializeField] LayerMask groundLayerMask;
-    bool wasWalking = true;
     public bool canRecieveOrders, flipped;
     public int assignedTouchID;
     public Vector2 touchStartPosition;
+    bool wasWalking = true;
 
     void Update()
     {
         if (!GroundedCheck() && charRigidbody.velocity.y < 0)
         {
             currentState = State.falling;
+            animationManager.SetJumping(false);
         }
     }
 
@@ -36,6 +38,7 @@ public class ImpMovement : MonoBehaviour
     public void Jump()
     {
         currentState = State.jumping;
+        animationManager.SetJumping(true);
         charRigidbody.velocity = new Vector2(charRigidbody.velocity.x, jumpSpeed);// charRigidbody.velocity + Vector2.up * jumpSpeed;
     }
 
@@ -70,11 +73,13 @@ public class ImpMovement : MonoBehaviour
     {
         if (Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayerMask))
         {
+            animationManager.SetGrounded(true);
             canRecieveOrders = true;
             if (currentState != State.walking && wasWalking)
                 Move(!flipped);
             return true;
         }
+        animationManager.SetGrounded(false);
         canRecieveOrders = false;
         return false;
     }

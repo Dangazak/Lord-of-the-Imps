@@ -27,7 +27,7 @@ public class TouchInputManager : MonoBehaviour
     }
     void FindTargetWithRaycast(Touch touch)
     {
-        Debug.Log("toque");
+        //Debug.Log("toque");
         Ray ray = Camera.main.ScreenPointToRay(touch.position);
         RaycastHit2D hitinfo = Physics2D.Raycast(ray.origin, ray.direction, 500, interactableObjects);
 

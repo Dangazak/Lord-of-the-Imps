@@ -30,7 +30,7 @@ Transform:
   - {fileID: 7949104701673830706}
   m_Father: {fileID: 8411968968225209183}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.708}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 91.631}
 --- !u!1 &310474874696520338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,7 +1690,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6869278754050571808}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.341}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.34}
 --- !u!1 &6831763931771864503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +1769,7 @@ MonoBehaviour:
   colisionableObjects:
     serializedVersion: 2
     m_Bits: 5056
-  raycastLenght: 0.05
+  raycastLenght: 0.1
 --- !u!1 &7242761280873634438
 GameObject:
   m_ObjectHideFlags: 0

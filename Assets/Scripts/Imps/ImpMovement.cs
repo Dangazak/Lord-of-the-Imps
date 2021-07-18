@@ -33,6 +33,10 @@ public class ImpMovement : MonoBehaviour
             else
                 charRigidbody.velocity = new Vector2(speed, charRigidbody.velocity.y);
         }
+        else if (currentState == State.stopped)
+        {
+            charRigidbody.velocity = new Vector2(0, charRigidbody.velocity.y);
+        }
     }
 
     public void Jump()
@@ -73,7 +77,7 @@ public class ImpMovement : MonoBehaviour
     {
         if (Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayerMask))
         {
-            animationManager.SetGrounded(true);
+            animationManager.SelectGroundedAnimation(currentState);
             canRecieveOrders = true;
             if (currentState != State.walking && wasWalking)
                 Move(!flipped);

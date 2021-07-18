@@ -35,7 +35,7 @@ public class ImpFlipper : MonoBehaviour
         //if (hitInfo) && hitInfo.collider != transform.parent.gameObject.GetComponent<CircleCollider2D>())
         for (int i = 0; i < hitsInfo.Length; i++)
         {
-            if (hitsInfo[i].collider.transform != transform.parent)
+            if (!hitsInfo[i].collider.isTrigger && imp.currentState == ImpMovement.State.walking)
                 FlipImp();
         }
     }

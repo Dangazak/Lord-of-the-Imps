@@ -13,7 +13,7 @@ public class Orb : MonoBehaviour
         if ((((1 << other.gameObject.layer) & impsLayers) != 0) && !other.isTrigger)
         //if (other.gameObject.layer == impsLayers)
         {
-            //levelCompletedWindow.SetActive(true);
+            levelCompletedWindow.SetActive(true);
             other.gameObject.GetComponent<ImpMovement>().Stop();
             //deactivate input control
             //Play level completed sound

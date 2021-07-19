@@ -5,6 +5,7 @@ using UnityEngine;
 public class TouchInputManager : MonoBehaviour
 {
     [SerializeField] LayerMask interactableObjects;
+    [SerializeField] LayerMask impsLayers;
     [SerializeField] List<ImpMovement> imps = new List<ImpMovement>();
     [SerializeField] float touchOffset;
 
@@ -33,10 +34,7 @@ public class TouchInputManager : MonoBehaviour
 
         if (hitinfo)
         {
-            if (hitinfo.collider.gameObject.layer == Constants.BIG_IMPS_LAYER
-            || hitinfo.collider.gameObject.layer == Constants.FLYING_IMPS_LAYER
-            || hitinfo.collider.gameObject.layer == Constants.NORMAL_IMPS_LAYER
-            || hitinfo.collider.gameObject.layer == Constants.SMALL_IMPS_LAYER)
+            if ((((1 << hitinfo.collider.gameObject.layer) & impsLayers) != 0))
             {
                 ImpMovement tempImp = hitinfo.collider.gameObject.GetComponent<ImpMovement>();
                 imps.Add(tempImp);

@@ -27,16 +27,19 @@ public class AudioManager : MonoBehaviour
     public void PlayLevelcompletedMusic()
     {
         musicAudioSource.Stop();
+        musicAudioSource2.Stop();
         musicAudioSource.pitch = 1;
         musicAudioSource.PlayOneShot(levelCompletedMusic);
     }
     public void PauseMusic()
     {
         musicAudioSource.Pause();
+        musicAudioSource2.Pause();
     }
     public void UnpauseMusic()
     {
         musicAudioSource.UnPause();
+        musicAudioSource2.UnPause();
     }
     public void PlaySound(AudioClip clipToPlay)
     {
@@ -46,6 +49,7 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         musicAudioSource.volume = volume;
+        musicAudioSource2.volume = volume;
     }
     public void SetSoundVolume(float volume)
     {

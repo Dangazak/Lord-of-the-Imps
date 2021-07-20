@@ -747,8 +747,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 1, y: 1.8}
   m_Direction: 0
 --- !u!50 &2428685710320210365
 Rigidbody2D:
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 7239043503804417233}
   - component: {fileID: 6776979834054758854}
   m_Layer: 6
-  m_Name: Flip collider
+  m_Name: Flipper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   imp: {fileID: 6087117020983161954}
   colisionableObjects:
     serializedVersion: 2
-    m_Bits: 5056
+    m_Bits: 7104
   raycastLenght: 0.1
 --- !u!1 &7242761280873634438
 GameObject:

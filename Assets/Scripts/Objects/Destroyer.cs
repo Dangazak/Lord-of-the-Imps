@@ -10,6 +10,7 @@ public class Destroyer : MonoBehaviour
         if ((((1 << other.gameObject.layer) & impsLayers) != 0) && !other.isTrigger)
         {
             Destroy(other.gameObject);
+            AudioManager.instance.PlaySound(AudioManager.instance.fallDeathSound);
         }
     }
 }

@@ -14,6 +14,7 @@ public class Portal : MonoBehaviour
     {
         if (isActive)
         {
+            AudioManager.instance.PlaySound(AudioManager.instance.portalSound);
             animator.SetBool(INACTIVE_ANIM_BOOL, true);
             Instantiate(impPrefab, transform.position, Quaternion.identity);
             isActive = false;

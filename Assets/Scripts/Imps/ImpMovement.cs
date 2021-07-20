@@ -41,6 +41,7 @@ public class ImpMovement : MonoBehaviour
 
     public void Jump()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.jumpSound);
         currentState = State.jumping;
         animationManager.SetJumping(true);
         charRigidbody.velocity = new Vector2(charRigidbody.velocity.x, jumpSpeed);// charRigidbody.velocity + Vector2.up * jumpSpeed;

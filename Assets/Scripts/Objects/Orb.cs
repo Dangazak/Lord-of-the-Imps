@@ -20,6 +20,8 @@ public class Orb : MonoBehaviour
             //Update stats
             //Save level completed info
             Debug.Log("Victory");
+            AudioManager.instance.PlaySound(AudioManager.instance.orbSound);
+            AudioManager.instance.PlayLevelcompletedMusic();
         }
     }
 }

@@ -19,12 +19,14 @@ public class ImpFlipper : MonoBehaviour
         else
             direction = transform.right;
 
-        RayCastCheck();
+        if (imp.currentState == ImpMovement.State.walking)
+            RayCastCheck();
 
         //Debug.DrawRay(transform.position, transform.right * 0.05f, Color.red);
     }
     private void FlipImp()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.turnSound);
         imp.flipped = !imp.flipped;
         imp.Move(!imp.flipped);
     }

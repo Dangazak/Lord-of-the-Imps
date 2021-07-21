@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Manages the volume options menu
 public class Options : MonoBehaviour
 {
     [SerializeField] Slider musicVolumeSlider, soundVolumeSlider;
@@ -33,11 +34,6 @@ public class Options : MonoBehaviour
     {
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("SoundVolume", soundVolume);
-    }
-
-    public void ResetRecord()
-    {
-        PlayerPrefs.SetInt("Record", 0);
     }
 
     public void SetMusicVolume(float volume)

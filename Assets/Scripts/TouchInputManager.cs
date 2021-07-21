@@ -8,10 +8,15 @@ public class TouchInputManager : MonoBehaviour
     [SerializeField] LayerMask impsLayers;
     [SerializeField] List<ImpMovement> imps = new List<ImpMovement>();
     [SerializeField] float touchOffset;
+    public static bool controlLocked;//This can fail if used to pause the game and there are active touches
 
+    private void Start()
+    {
+        controlLocked = false;
+    }
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !controlLocked)
         {
             for (int i = 0; i < Input.touches.Length; i++)
             {

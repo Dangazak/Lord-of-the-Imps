@@ -11,17 +11,15 @@ public class Orb : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if ((((1 << other.gameObject.layer) & impsLayers) != 0) && !other.isTrigger)
-        //if (other.gameObject.layer == impsLayers)
         {
             levelCompletedWindow.SetActive(true);
             other.gameObject.GetComponent<ImpMovement>().Stop();
             //deactivate input control
-            //Play level completed sound
             //Update stats
-            //Save level completed info
             Debug.Log("Victory");
             AudioManager.instance.PlaySound(AudioManager.instance.orbSound);
             AudioManager.instance.PlayLevelcompletedMusic();
+            PersistentDataManager.instance.SetLevelScore(SceneManager.GetActiveScene().buildIndex, 1);
         }
     }
 }

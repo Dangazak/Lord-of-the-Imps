@@ -1132,6 +1132,9 @@ MonoBehaviour:
   fallDeathSound: {fileID: 8300000, guid: 823f8021619241b44b0e659e7351349f, type: 3}
   portalSound: {fileID: 8300000, guid: 8603aa79538bb2242a085b4b7ccdf9f6, type: 3}
   clickSound: {fileID: 8300000, guid: 2f992c50ae1e80d419b76c69d7e2fb45, type: 3}
+  crushDeathSound: {fileID: 8300000, guid: 30819b3e55dbcd549bfdd55f902061a2, type: 3}
+  spikeDeathSound: {fileID: 8300000, guid: e3aeace69bd46b643950e69a1e3e0a26, type: 3}
+  fall2DeathSound: {fileID: 8300000, guid: b5bdb4d605a9b5a4f9673d07f833b7cc, type: 3}
   openDoorSound: {fileID: 8300000, guid: bd645e93314a62643b789f64d75d8272, type: 3}
   closeDoorSound: {fileID: 8300000, guid: da7f342d8db9c804081c3873409fde8b, type: 3}
   orbSound: {fileID: 8300000, guid: 77480c08880101342b199e554f827e24, type: 3}
@@ -1224,6 +1227,7 @@ MonoBehaviour:
   impsLayers:
     serializedVersion: 2
     m_Bits: 960
+  selectedDeath: 0
 --- !u!1 &946520194
 GameObject:
   m_ObjectHideFlags: 0

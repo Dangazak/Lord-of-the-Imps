@@ -10,8 +10,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicAudioSource2;
     public AudioClip levelCompletedMusic, ambienceSound, roundStart1, roundStart2, menuMusic1, menuMusic2,
     //endMusic, unlockMusic, endRoundMusic, 
-    jumpSound, turnSound, fallDeathSound, portalSound, clickSound,
-    openDoorSound, closeDoorSound, orbSound;
+    jumpSound, turnSound, fallDeathSound, portalSound, clickSound, crushDeathSound, spikeDeathSound,
+    fall2DeathSound, openDoorSound, closeDoorSound, orbSound;
     [SerializeField] float minPitch, maxPitch;
     public static AudioManager instance;
 

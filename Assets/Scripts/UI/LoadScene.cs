@@ -9,4 +9,9 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void LoadNextNotCompletedScene()
+    {
+        SceneManager.LoadScene(PersistentDataManager.instance.GetNextNotClearedLevel());
+    }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ImpMovement : MonoBehaviour
 {
-    [SerializeField] float speed, groundCheckDistance, jumpSpeed;
+    public static int activeImps;
+    [SerializeField] float speed, groundCheckDistance, jumpSpeed, terminalVelocity;
     [SerializeField] Rigidbody2D charRigidbody;
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] ImpAnimationManager animationManager;
@@ -14,6 +15,7 @@ public class ImpMovement : MonoBehaviour
     public int assignedTouchID;
     public Vector2 touchStartPosition;
     bool wasWalking = true;
+    bool deathFall;
 
     void Update()
     {
@@ -21,6 +23,10 @@ public class ImpMovement : MonoBehaviour
         {
             currentState = State.falling;
             animationManager.SetJumping(false);
+        }
+        if (charRigidbody.velocity.y < -terminalVelocity)
+        {
+            deathFall = true;
         }
     }
 
@@ -80,7 +86,13 @@ public class ImpMovement : MonoBehaviour
         {
             animationManager.SelectGroundedAnimation(currentState);
             canRecieveOrders = true;
-            if (currentState != State.walking && wasWalking)
+            if (deathFall)
+            {
+                Destroy(gameObject);
+                AudioManager.instance.PlaySound(AudioManager.instance.fall2DeathSound);
+                activeImps--;
+            }
+            else if (currentState != State.walking && wasWalking)
                 Move(!flipped);
             return true;
         }

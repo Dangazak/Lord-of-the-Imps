@@ -8,12 +8,14 @@ public class Portal : MonoBehaviour
     [SerializeField] GameObject impPrefab;
     [SerializeField] float inactiveTime;
     [SerializeField] Animator animator;
+    [SerializeField] int maxNumberOfImps;
     bool isActive = true;
 
     public void SpawnImp()
     {
-        if (isActive)
+        if (isActive && ImpMovement.activeImps < maxNumberOfImps)
         {
+            ImpMovement.activeImps++;
             AudioManager.instance.PlaySound(AudioManager.instance.portalSound);
             animator.SetBool(INACTIVE_ANIM_BOOL, true);
             Instantiate(impPrefab, transform.position, Quaternion.identity);

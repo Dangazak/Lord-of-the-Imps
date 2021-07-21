@@ -786,6 +786,7 @@ MonoBehaviour:
   speed: 3
   groundCheckDistance: 1.1
   jumpSpeed: 7
+  terminalVelocity: 10
   charRigidbody: {fileID: 2428685710320210365}
   groundLayerMask:
     serializedVersion: 2

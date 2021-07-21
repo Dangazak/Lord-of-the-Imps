@@ -229,6 +229,7 @@ MonoBehaviour:
   impPrefab: {fileID: 2428685710320210364, guid: e4420fde7ce20b4408693d144bfa16a2, type: 3}
   inactiveTime: 2
   animator: {fileID: 6912189316369770024}
+  maxNumberOfImps: 8
 --- !u!95 &6912189316369770024
 Animator:
   serializedVersion: 3

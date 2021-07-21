@@ -11,6 +11,7 @@ public class Destroyer : MonoBehaviour
     {
         if ((((1 << other.gameObject.layer) & impsLayers) != 0) && !other.isTrigger)
         {
+            ImpMovement.activeImps--;
             Destroy(other.gameObject);
             if (selectedDeath == DeathType.fall)
             {

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Switches the activated state of an array of objects when an imp enters this objects trigger collider
 public class Switch : MonoBehaviour
 {
     const string ACTIVATED = "Activated";

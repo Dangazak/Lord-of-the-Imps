@@ -11,6 +11,7 @@ public class NextLvlButton : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         sceneIndex++;
+        //GameControl.control.StopMusc ();
         SceneManager.LoadScene(sceneIndex);
     }
 }

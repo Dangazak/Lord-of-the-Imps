@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Destroys imps that enters this objects trigger collider and plays a sound, can be expanded with a death animation or particle effect
 public class Destroyer : MonoBehaviour
 {
     [SerializeField] LayerMask impsLayers;

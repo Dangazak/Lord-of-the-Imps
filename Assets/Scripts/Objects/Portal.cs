@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Spawns imps on touch
 public class Portal : MonoBehaviour
 {
     const string INACTIVE_ANIM_BOOL = "Inactive";
@@ -14,7 +13,7 @@ public class Portal : MonoBehaviour
 
     public void SpawnImp()
     {
-        if (isActive && ImpMovement.activeImps < maxNumberOfImps && !TouchInputManager.controlLocked)
+        if (isActive && ImpMovement.activeImps < maxNumberOfImps)
         {
             ImpMovement.activeImps++;
             AudioManager.instance.PlaySound(AudioManager.instance.portalSound);

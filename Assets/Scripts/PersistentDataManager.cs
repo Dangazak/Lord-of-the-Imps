@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Stores and manages the persistent game data, right now level completion but it should be extended with achievements and stats
 public class PersistentDataManager : MonoBehaviour
 {
     [SerializeField] string[] playerPrefsNames;
@@ -31,7 +30,6 @@ public class PersistentDataManager : MonoBehaviour
     public void SetLevelScore(int level, int score)
     {
         levelScores[level - 1] = score;
-        PlayerPrefs.SetInt(playerPrefsNames[level - 1], score);
     }
 
     public void SaveData()
@@ -49,12 +47,5 @@ public class PersistentDataManager : MonoBehaviour
                 return i + 1;
         }
         return 1;
-    }
-    public void DeleteSavedData()
-    {
-        for (int i = 0; i < playerPrefsNames.Length; i++)
-        {
-            PlayerPrefs.DeleteKey(playerPrefsNames[i]);
-        }
     }
 }

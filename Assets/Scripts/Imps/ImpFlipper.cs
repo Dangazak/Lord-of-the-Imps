@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Flips the imp when it collides with an obstacle
 public class ImpFlipper : MonoBehaviour
 {
     [SerializeField] ImpMovement imp;
@@ -22,6 +21,8 @@ public class ImpFlipper : MonoBehaviour
 
         if (imp.currentState == ImpMovement.State.walking)
             RayCastCheck();
+
+        //Debug.DrawRay(transform.position, transform.right * 0.05f, Color.red);
     }
     private void FlipImp()
     {
@@ -32,6 +33,8 @@ public class ImpFlipper : MonoBehaviour
     private void RayCastCheck()
     {
         hitsInfo = Physics2D.RaycastAll(transform.position, direction, raycastLenght, colisionableObjects);
+        //hitInfo = Physics2D.Raycast(transform.position, direction, raycastLenght, colisionableObjects);
+        //if (hitInfo) && hitInfo.collider != transform.parent.gameObject.GetComponent<CircleCollider2D>())
         for (int i = 0; i < hitsInfo.Length; i++)
         {
             if (!hitsInfo[i].collider.isTrigger && imp.currentState == ImpMovement.State.walking)
